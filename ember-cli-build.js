@@ -8,6 +8,8 @@ module.exports = function(defaults) {
     }
   });
 
+  app.import("bower_components/ember-localstorage-adapter/localstorage_adapter.js");
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
