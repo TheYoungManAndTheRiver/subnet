@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function () {
+  model: function() {
     return this.store.createRecord('subnet', {
-      ip: 0,
-      networkBits: 16
+      networkAddressDecimalRepresentation: "10.18.4.0",
+      networkBits: 24
     });
   }
 });
