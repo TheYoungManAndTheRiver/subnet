@@ -68,5 +68,5 @@ export default DS.Model.extend({
     get() {
       return (this.get('networkAddress') & ~this.get('subnetmask')) === 0;
     },
-  }),
+  })
 });

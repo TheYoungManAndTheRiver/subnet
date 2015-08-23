@@ -2,18 +2,18 @@
   <div class="col-sm-6">
     <label for="nwadress">Enter networkaddress</label>
     <div class="input-group">
-      {{input value=model.networkAddressDecimalRepresentation id="nwadress" class="form-control edit" }}
+      {{input value=network.networkAddressDecimalRepresentation id="nwadress" class="form-control edit" }}
       <span class="input-group-addon"> / </span>
-      {{input value=model.networkBits type="number" min="0" max="30" maxlength="2" class="form-control edit" }}
+      {{input value=network.networkBits type="number" min="0" max="30" maxlength="2" class="form-control edit" }}
     </div>
   </div>
   <div class="col-sm-6">
-    {{#if model.validSubnet}}
-      <p>Your network can support up to {{model.availableHosts}} Hosts.</p>
+    {{#if network.validSubnet}}
+      <p>Your network can support up to {{network.availableHosts}} Hosts.</p>
     {{else}}
       <p>Network address and subnetmask don't fit.</p>
     {{/if}}
-    <p>Your Network Address: {{model.networkAddressDecimalRepresentation}}</p>
-    <p>Your Subnetmask: {{model.subnetmaskDecimalRepresentation}}</p>
+    <p>Your Network Address: {{network.networkAddressDecimalRepresentation}}</p>
+    <p>Your Subnetmask: {{network.subnetmaskDecimalRepresentation}}</p>
   </div>
 </div>
