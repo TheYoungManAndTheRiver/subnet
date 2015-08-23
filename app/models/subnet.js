@@ -17,54 +17,55 @@ export default DS.Model.extend({
   },
 
   networkAddressDecimalRepresentation: Ember.computed('networkAddress', {
-    get(key) {
+    get() {
       return this.toDecimalRepresentation(this.get("networkAddress"));
     },
     set(key, value) {
-      var previousValue = this.get("networkAddressDecimalRepresentation");
+      var previousValue = this.get(key);
       let newIP = 0;
       var octetts = value.split(".");
-      if(octetts.length === 4) {
-        for (let i = 0; i < octetts.length; i++) {
-          if(octetts[i].length === 0 || isNaN(octetts[i]) || octetts[i] > 255 || octetts[i] < 0) {
-            return previousValue;
-          }
-          newIP <<= 8;
-          newIP += parseInt(octetts[i]);
-        }
-        this.set("networkAddress", newIP);
-        return value;
+      if(octetts.length !== 4) {
+        return previousValue;
       }
+      for (let i = 0; i < octetts.length; i++) {
+        if(octetts[i].length === 0 || isNaN(octetts[i]) || octetts[i] > 255 || octetts[i] < 0) {
+          return previousValue;
+        }
+        newIP <<= 8;
+        newIP += parseInt(octetts[i]);
+      }
+      this.set("networkAddress", newIP);
+      return value;
     }
   }),
 
   availableBits: Ember.computed('networkBits', {
-    get(key) {
+    get() {
       return 32 - this.get("networkBits");
     },
   }),
 
   availableHosts: Ember.computed('networkBits', {
-    get(key) {
+    get() {
       return Math.pow(2, this.get("availableBits")) - 2;
     },
   }),
 
   subnetmask: Ember.computed('networkBits', {
-    get(key) {
+    get() {
       var bits = Math.pow(2, this.get("networkBits")) - 1;
       return bits << this.get("availableBits");
     },
   }),
 
   subnetmaskDecimalRepresentation: Ember.computed('subnetmask', {
-    get(key) {
+    get() {
       return this.toDecimalRepresentation(this.get('subnetmask'));
     },
   }),
 
   validSubnet: Ember.computed('networkAddress', 'subnetmask', {
-    get(key) {
+    get() {
       return (this.get('networkAddress') & ~this.get('subnetmask')) === 0;
     },
   }),

@@ -1,7 +1,6 @@
-# Subnet
+# Subnet Calculator
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Easily split your local network into subnets using this tool.
 
 ## Prerequisites
 
@@ -15,7 +14,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:TheYoungManAndTheRiver/subnet.git` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
@@ -24,10 +23,6 @@ You will need the following things properly installed on your computer.
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
 
 ### Running Tests
 
@@ -41,7 +36,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+App has not yet been deployed anywhere.
 
 ## Further Reading / Useful Links
 
