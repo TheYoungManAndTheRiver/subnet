@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('subnets');
+  this.route('network', function () {
+    this.route('subnets');
+  });
 });
 
 export default Router;

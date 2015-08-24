@@ -1,5 +1,6 @@
 import DS from 'ember-data';
+import Network from 'subnet/models/network';
 
-export default DS.Model.extend({
-  
+export default Network.extend({
+  parent: DS.belongsTo('network')
 });

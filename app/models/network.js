@@ -5,6 +5,7 @@ export default DS.Model.extend({
   // IPs are stored as int
   networkAddress: DS.attr("number"),
   networkBits: DS.attr("number"),
+  subnets: DS.hasMany('subnet'),
 
   // turns an IP (represented by an integer) into it's readable representation
   toDecimalRepresentation: function(ip) {
